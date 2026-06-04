@@ -1,0 +1,27 @@
+What type of DNS record www is in www.foobar.com
+- world wild web
+
+What is the role of the web server
+- the role of a web server is to show the static data on a website and make the transmission of http request with the client or the app server
+
+What is the role of the application server
+- do request validation
+- the role is to take the request from the web server and treat it by sending an api request to the logic app file (business logic layer)
+- when it receive a response from the logic app file it send the data back to the web server 
+
+What is the role of the database
+- the database is a vitrual storage that stock and organize data to be retrieve by the logic app file
+
+What is the server using to communicate with the computer of the user requesting the website
+- protocol more precisely hypertext transfer protocol
+
+You must be able to explain what the issues are with this infrastructure:
+
+  SPOF
+  - the problem of this infrastructure is the fact it is linear and you have single point of failure on the server
+
+  Downtime when maintenance needed (like deploying new code web server needs to be restarted)
+  - when we are updating the site and redeploy it we have to restart all the things so we have the website down for a meantime
+
+  Cannot scale if too much incoming traffic
+  - server can overload
