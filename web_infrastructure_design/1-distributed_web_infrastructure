@@ -1,0 +1,27 @@
+You must be able to explain some specifics about this infrastructure:
+
+For every additional element, why you are adding it
+- the load balancer will do the redistribution of the request between the two server to avoid the overload from too much trafic
+
+What distribution algorithm your load balancer is configured with and how it works
+- the load balancer is configured with HAproxy it proposes five algorithm to distribute the request on the trafic to the different server
+
+Is your load-balancer enabling an Active-Active or Active-Passive setup, explain the difference between both
+- here we could say it is an active setup of the load balancer because there is no other load balancer as backup or working in the same -time so there is no active-active or active-passive but just one active
+
+How a database Primary-Replica (Master-Slave) cluster works
+- the primary database is taking all the data modification like insert, update, delete when we do the read queries on the replica database
+and the replica is copying the data modification from the primary database 
+
+What is the difference between the Primary node and the Replica node in regard to the application
+- the application is sending modifications requests like insert update and delete to the primary database. When the read request are send to the replica database when you want to retrieve data.
+
+You must be able to explain what the issues are with this infrastructure:
+- there is a single load balancer and that's a problem when there is too much trafic
+- there is also only two server so the two server can be overloaded for a traffic of problem so having more serve or load balancer would split the qps by the number of balancer
+
+Where are SPOF
+- the single point of Failure is on the load balancer / it should be better to have other load balancer in active-active
+
+Security issues (no firewall, no HTTPS)
+- there is no firewall, no SSL, so there is no security, also there is only one load balancer so the is a high possibility of overload when there is too much people doing request at the same time
