@@ -20,7 +20,7 @@ Explain what to do if you want to monitor your web server QPS
 You must be able to explain what the issues are with this infrastructure:
 
 Why terminating SSL at the load balancer level is an issue
-- the rest of the data cannot be encrypted
+- the rest of the data can be not encrypted so vulnerable if a person try to intercept between backend and web server
 
 Why having only one MySQL server capable of accepting writes is an issue
 - problem for backup storage and for the request so you do all the CRUD on only one database in spite of 2 to do the insert update delete on the primary and one replica to do the read request.
